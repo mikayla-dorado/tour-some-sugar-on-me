@@ -1,0 +1,33 @@
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+
+.bookings {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 15px;
+}
+
+.details {
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-basis: 24%;
+    margin: 0 2rem;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.detail--column {
+    padding: 1rem;
+    border: 1px dotted goldenrod;
+    width: 40%;
+}
+
+.allbookings {
+    border: 1px dotted goldenrod;
+}
