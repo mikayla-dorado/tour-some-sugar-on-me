@@ -17,11 +17,10 @@ const findBand = (booking, allBands) => {
     return bookingBand
 }
 
-const findVenue = (booking, allVenues) => {
+const findVenue = (a, b) => {
     let bookingVenue = ""
-
-    for (const venue of allVenues) {
-        if (venue.id === booking.venueId) {
+    for (const venue of b) {
+        if (venue.id === a.venueId) {
             bookingVenue = venue
         }
     }
@@ -35,12 +34,12 @@ const findVenue = (booking, allVenues) => {
 
 export const Bookings = () => {
     let html = ""
-    html = "<ul>"
+    html += "<ul>"
 
     for (const booking of bookings) {
         const venue = findVenue(booking, venues) //booking needs to be singular here!!!
         const band = findBand(booking, bands)
-        html += `<li>${band.name} is playing at ${venue.name} on ${booking.date}</li>` //TODO: incorporate {booking.date}
+        html += `<li data-type="booking" data-id="${booking.id}">${band.name} are playing at ${venue.name} on ${booking.date}</li>` //TODO: incorporate {booking.date}
     }
 
     html += "</ul>"
@@ -48,69 +47,32 @@ export const Bookings = () => {
     return html
 }
 
-// export const Orders = () => {
-//     let html = ""
-//     html = "<ul>"
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        const itemClicked = clickEvent.target
+        const bookingId = itemClicked.dataset.id
 
-//     for (const booking of bookings) {
-//         const employee = findEmployee(order, employees)
-//         const product = findProduct(order, products)
-
-//         html += `<li>${product.name} was sold by ${employee.name} on ${new Date(order.timestamp).toLocaleDateString()}</li>`
-//     }
-
-//     html += "</ul>"
-
-//     return html
-// }
-
-
-/*
-? import { getProducts, getEmployees, getOrders } from "./database.js"
-? Get copy of state for use in this module
-?const products = getProducts()
-?const employees = getEmployees()
-?const orders = getOrders()
-
-// Function whose responsibility is to find the band for an booking
-
-//? const findProduct = (order, allProducts) => {
-//?     let orderProduct = ""
-
-//?     for (const product of allProducts) {
-//?         if (band.id === booking.bandId) {
-//?             bookingBand = badn
-//?         }
-//?     }
-//?     return orderProduct
-//? }
+        if (itemClicked.dataset.type === "booking") {
+            
+            for (const booking of bookings) {
+                if (booking.id === parseInt(bookingId)) {
+                    //let findingVenue = findVenue(booking,venues)
+                    let findingBand = findBand(booking,bands)
+                    window.alert(`${findingBand.name}\n ${findingBand.genre}\n${findingBand.members} band members\n Formed in ${findingBand.founded} `)
+                    // Rocket Pumpkins \n
+                    // EDM
+                    // Formed in 2005
+                    // 3 band members
+                }
+            }
 
 
-//? const findEmployee = (order, allEmployees) => {
-//?   let orderEmployee = ""
-//?     for (const employee of allEmployees) {
-//?         if (employee.id === order.employeeId) {
-//?             orderEmployee = employee
-//?         }
-//?     }
-//?     return orderEmployee
-//? }
-
-
-
-export const Orders = () => {
-    let html = ""
-    html = "<ul>"
-
-    for (const order of orders) {
-        const employee = findEmployee(order, employees)
-        const product = findProduct(order, products)
-
-        html += `<li>${product.name} was sold by ${employee.name} on ${new Date(order.timestamp).toLocaleDateString()}</li>`
+        }
     }
+)
 
-    html += "</ul>"
 
-    return html
-}
-*/
+                //OBJECT
+//make a window alert for bookings
+//the window alert shuld display all information for each band when clicked

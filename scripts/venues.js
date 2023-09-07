@@ -19,12 +19,6 @@ export const Venues = () => {
 }
 
 
-
-
-
-
-
-
 const checkBookings = (id) => {
     const data = []
     for (const booking of bookings) {
@@ -42,7 +36,7 @@ const checkBookings = (id) => {
 const checkBands = (bandIds) => {
     const info = []
     for (const band of bands) {
-        if (bandIds.includes(band.id)) { //.INCLUDES
+        if (bandIds.includes(band.id)) { //.INCLUDES            band.id === parseInt(bandIds)
             info.push(band.name)
         }
     }
@@ -82,77 +76,4 @@ document.addEventListener (
 )
 
 
-// }
-// if (data.length === 0) {
-// // The Shanghai, China dock is currently unloading nothing
-// window.alert(`${location} is currently unloading nothing`)
-// } else if (data.length === 1) {
-// window.alert(`${location} is currently unloading ${data[0]}`) 
-// } else if (data.length > 1) {
-//     window.alert(`${location} is currently unloading ${data.join(", ")}`)
-//     //display each item in the array data, using .join()
-// }
-// }
 
-
-
-
-//window alert should be presented to the user that displays all of the bands that have booked the venue when clicked. 
-//"band 1, 2 are playing venue name" (band 8 and 6 are playing at venue 2)
-
-/*
-
-
-
-import { getDocks, getHaulers } from "./database.js"
-
-const haulers = getHaulers()
-const docks = getDocks()
-
-export const DockList = () => {
-
-
-    let docksHTML = "<ul>"
-
-    for (const dock of docks) {
-
-
-        // Convert each dock object to an <li> and append to the docksHTML string
-        docksHTML += `<li class="dock" data-name="${dock.location}" data-id="${dock.id}" data-type="dock">"${dock.location}"</li>`
-    }
-
-    docksHTML += "</ul>"
-
-    return docksHTML
-}
-
-// 
-document.addEventListener(
-    "click",
-    (clickEvent) => {
-        const itemClicked = clickEvent.target
-
-        if (itemClicked.dataset.type === "dock") {
-
-            const dockId = itemClicked.dataset.id //dock.id PK
-            const location = itemClicked.dataset.name
-        
-            const data = []
-            
-                 //iterate the docks array
-                //if a hauler is currently at the dock, 
-                //iterate the haulers array
-                //for each hauler if the hauler.dockId is equal to the dock.id
-                for (const hauler of haulers) {
-                    if (hauler.dockId === parseInt(dockId)) {
-                        data.push(hauler.name)
-                    }
-                    
-                
-
-            
-        }
-)
-
-
-*/

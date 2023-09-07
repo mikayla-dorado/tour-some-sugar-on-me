@@ -107,7 +107,7 @@ const database = {
         name: "Velvet Acoustic Serenity",
         members: 3,
         genre: "Folk",
-        founded: 4
+        founded: 2004
     }, {
         id: 9,
         name: "Quantum Funk Fusion",
